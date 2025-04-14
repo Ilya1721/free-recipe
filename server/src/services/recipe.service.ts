@@ -27,7 +27,6 @@ export async function getRecipes(query: ParsedQs) {
   if (isEmptyObject(query)) {
     return await getAllRecipes();
   }
-
   return await filterRecipes(query);
 }
 
