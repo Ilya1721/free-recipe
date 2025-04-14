@@ -69,7 +69,7 @@ const RecipeInfoPage: React.FC = () => {
   const ingredients = extractIngredients();
 
   return (
-    <Container fluid className="mt-4">
+    <Container fluid className="mt-4 mb-3">
       <Row>
         <Col md={9}>
           <Row>
@@ -105,14 +105,14 @@ const RecipeInfoPage: React.FC = () => {
         </Col>
         <Col md={3}>
           <h5 className="mb-3">More in "{recipe.strCategory}"</h5>
-          <ListGroup className="mb-3">
+          <ListGroup>
             {relatedByCategory
               .filter((r) => r.idMeal !== recipe.idMeal)
               .map((r) => (
                 <ListGroup.Item
                   key={r.idMeal}
                   action
-                  onClick={() => handleFilter("c", recipe.strCategory!)}
+                  onClick={() => handleFilter(CATEGORY_SEARCH_KEY, recipe.strCategory!)}
                 >
                   {r.strMeal}
                 </ListGroup.Item>

@@ -12,7 +12,7 @@ async function getAllRecipes() {
   }
 }
 
-async function filterRecipes(query: ParsedQs) {
+async function getFilteredRecipes(query: ParsedQs) {
   try {
     const res = await axios.get(`${RECIPE_API_BASE_URL}filter.php?`, {
       params: query,
@@ -27,7 +27,7 @@ export async function getRecipes(query: ParsedQs) {
   if (isEmptyObject(query)) {
     return await getAllRecipes();
   }
-  return await filterRecipes(query);
+  return await getFilteredRecipes(query);
 }
 
 export async function getRecipeInfo(id: string) {

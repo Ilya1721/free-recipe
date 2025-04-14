@@ -42,14 +42,10 @@ const RecipeListPage: React.FC = () => {
     fetchRecipes();
   }, [fetchRecipes]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="container mt-4">
       <h2 className="mb-4">{getTitle()}</h2>
-      <form className="row g-3 mb-4" onSubmit={handleSubmit}>
+      <form className="row g-3 mb-4">
         <div className="col-md-4">
           <input
             type="text"
