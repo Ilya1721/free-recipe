@@ -1,6 +1,10 @@
 import { Request, Response } from "express";
-import { getRecipes } from "../services/recipe.service";
+import { getRecipeInfo, getRecipes } from "../services/recipe.service";
 
-export const getRecipesReq = (req: Request, res: Response) => {
-  res.json(getRecipes(req.query));
+export const getRecipesHandler = async (req: Request, res: Response) => {
+  res.json(await getRecipes(req.query));
+};
+
+export const getRecipeInfoHandler = async (req: Request, res: Response) => {
+  res.json(await getRecipeInfo(req.params.id));
 };
